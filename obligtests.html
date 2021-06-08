@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
+  <script src="controller.js"></script>
+  <script>
+        // Dummy model
+        let totalGuesses;
+        let numberToGuess;
+        let guessFeedbackText;
+        let guessedNumber;
+        // Dummy View
+        function updateView() {
+
+        }
+
+        QUnit.test("Test 1 - Guess counter", function (assert) {
+            totalGuesses = 2;
+            guess();
+            let actual = totalGuesses;
+            let expected = 3;
+            assert.equal(actual, expected);
+        });
+      
+        QUnit.test("Test 2 - Er numberToGuess et tall", function (assert) {
+            startGame();
+            
+            let actual = isNaN(numberToGuess);
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+      
+        QUnit.test("Test 3 - Er numberToGuess innenfor rekkevidden", function (assert) {
+            startGame();
+            checkNumber();
+            
+            let actual = checkNumber();
+            let expected = true;
+            assert.equal(actual, expected);
+        });
+      
+    
+  </script>
+</body>
+</html>
